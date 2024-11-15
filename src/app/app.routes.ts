@@ -1,9 +1,24 @@
 import { Routes } from '@angular/router';
 
-import { HomeComponent } from './modules/home/container/home.component';
-import { PostsComponent } from './modules/posts/container/posts.component';
-
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'posts', component: PostsComponent },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./modules/home/home.module').then((m) => m.HomeModule),
+    title: 'Home',
+  },
+  {
+    path: 'posts',
+    loadChildren: () =>
+      import('./modules/posts/posts.module').then((m) => m.postsModule),
+    title: 'posts',
+  },
+  {
+    path: 'products',
+    loadChildren: () =>
+      import('./modules/products/Products.module').then(
+        (m) => m.ProductsModule,
+      ),
+    title: 'products',
+  },
 ];
