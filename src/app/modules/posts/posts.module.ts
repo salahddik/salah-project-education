@@ -7,4 +7,4 @@ import { PostsComponent } from './container/posts.component';
   imports: [CommonModule], // Import CommonModule for common Angular directives
   exports: [PostsComponent], // Export NavbarComponent so it can be used in other modules
 })
-export class postsModule { }
+export class postsModule {}

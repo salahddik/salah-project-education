@@ -7,4 +7,4 @@ import { HomeComponent } from './container/home.component';
   imports: [CommonModule], // Import CommonModule for common Angular directives
   exports: [HomeComponent], // Export NavbarComponent so it can be used in other modules
 })
-export class HomeModule { }
+export class HomeModule {}

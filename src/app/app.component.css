@@ -1,16 +1,15 @@
 .page-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 110vh;
-  }
-  
-  .content {
-    flex: 1;
-  }
-  
-  app-footer {
-    background-color: #f8f8f8; /* Adjust background color as needed */
-    padding: 1rem;
-    text-align: center;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  min-height: 110vh;
+}
+
+.content {
+  flex: 1;
+}
+
+app-footer {
+  background-color: #f8f8f8; /* Adjust background color as needed */
+  padding: 1rem;
+  text-align: center;
+}

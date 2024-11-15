@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
 
 @NgModule({
   declarations: [NavbarComponent],
-  imports: [CommonModule,RouterLink], // Import CommonModule for common Angular directives
+  imports: [CommonModule, RouterLink], // Import CommonModule for common Angular directives
   exports: [NavbarComponent], // Export NavbarComponent so it can be used in other modules
 })
-export class NavbarModule { }
+export class NavbarModule {}
