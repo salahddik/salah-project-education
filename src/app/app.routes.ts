@@ -21,4 +21,10 @@ export const routes: Routes = [
       ),
     title: 'products',
   },
+  {
+    path: 'form',
+    loadChildren: () =>
+      import('./modules/form/form.module').then((m) => m.FormModule),
+    title: 'form',
+  },
 ];

@@ -1,3 +1,4 @@
 export const environment = {
-  urlapiposts: 'https://jsonplaceholder.typicode.com/posts',
+  production: false,
+  apiposts: 'https://jsonplaceholder.typicode.com/posts',
 };
