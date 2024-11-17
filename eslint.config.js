@@ -1,4 +1,5 @@
 // @ts-check
+
 const eslint = require('@eslint/js');
 const tseslint = require('typescript-eslint');
 const angular = require('angular-eslint');
@@ -37,6 +38,14 @@ module.exports = tseslint.config(
         },
       ],
       'prettier/prettier': 'error', // Treat Prettier issues as errors
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          args: 'none',                // Ignore unused function arguments
+          ignoreRestSiblings: true,    // Ignore rest sibling variables (like in destructuring)
+          varsIgnorePattern: '^_'      // Allow variables starting with underscore to be unused
+        }
+      ],
     },
   },
   {

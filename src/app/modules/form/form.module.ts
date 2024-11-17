@@ -10,6 +10,6 @@ import { provideHttpClient } from '@angular/common/http';
   imports: [CommonModule, FormRoutingModule, ReactiveFormsModule],
   providers: [
     provideHttpClient(), // Providing the HttpClient using hadi badaltha dir deprecated()
-  ]
+  ],
 })
 export class FormModule {}
