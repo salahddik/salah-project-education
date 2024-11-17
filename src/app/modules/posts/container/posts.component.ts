@@ -9,6 +9,9 @@ import { Postsinterface } from '../../../shared/interface/postsinterface'; // Im
 })
 export class PostsComponent implements OnInit {
   posts: Postsinterface[] = []; // Typed posts array
+  loading = false; // Indicates loading state
+  error = ''; // Stores error message if any
+
   constructor(private service: ServiceApiService) {}
   ngOnInit(): void {
     // Fetch posts when the component initializes
