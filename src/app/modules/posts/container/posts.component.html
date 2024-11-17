@@ -1,6 +1,22 @@
-<h1>salah test</h1>
-<div *ngFor="let post of posts">
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.body }}</p>
+
+
+<section class="container px-5 py-24 mx-auto flex items-center">
+  <div class="overflow-x-auto">
+    <table class="min-w-full border-collapse border border-gray-300">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border border-gray-300 px-4 py-2 text-left">ID</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Title</th>
+          <th class="border border-gray-300 px-4 py-2 text-left">Body</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of posts" class="hover:bg-gray-50">
+          <td class="border border-gray-300 px-4 py-2">{{ post.id }}</td>
+          <td class="border border-gray-300 px-4 py-2">{{ post.title }}</td>
+          <td class="border border-gray-300 px-4 py-2">{{ post.body }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  
+</section>
