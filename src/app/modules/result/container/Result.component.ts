@@ -7,12 +7,14 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./Result.component.scss'],
 })
 export class ResultComponent implements OnInit {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   users: any[] = []; // Store the fetched users here.
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     // Fetch the data from the API.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     this.http.get<any[]>('http://localhost:3000/users').subscribe(
       (data) => {
         this.users = data;

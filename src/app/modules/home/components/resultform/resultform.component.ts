@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core'; // First, import Input
 
 @Component({
   selector: 'app-resultform',
   templateUrl: './resultform.component.html',
-  styleUrl: './resultform.component.scss',
+  styleUrls: ['./resultform.component.scss'],
 })
-export class ResultformComponent {}
+export class ResultformComponent {
+  @Input() item = ''; // decorate the property with @Input()
+}

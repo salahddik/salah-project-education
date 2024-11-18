@@ -1,4 +1,7 @@
 <section class="container px-5 py-24 mx-auto flex items-center">
-  <app-resultform></app-resultform>
-  <app-form></app-form>
+  <!-- Display text from the parent component in app-resultform -->
+  <app-resultform [item]="currentItem"></app-resultform>
+
+  <!-- Send text from the app-form component to the parent component -->
+  <app-form (dataUpdate)="updateText($event)"></app-form>
 </section>
