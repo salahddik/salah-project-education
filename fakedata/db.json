@@ -1,14 +1,3 @@
 {
-  "users": [
-    {
-      "id": "7590",
-      "name": "salah eddine",
-      "email": "salah@dsada.com"
-    },
-    {
-      "id": "2ae5",
-      "name": "sasd",
-      "email": "sda@sda.com"
-    }
-  ]
+  "users": []
 }

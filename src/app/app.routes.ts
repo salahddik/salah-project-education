@@ -27,4 +27,10 @@ export const routes: Routes = [
       import('./modules/form/form.module').then((m) => m.FormModule),
     title: 'form',
   },
+  {
+    path: 'result',
+    loadChildren: () =>
+      import('./modules/result/result.module').then((m) => m.ResultModule),
+    title: 'result',
+  },
 ];

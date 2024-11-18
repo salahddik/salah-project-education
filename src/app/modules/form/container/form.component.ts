@@ -2,7 +2,12 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http'; // Import HttpClient
 import { Observable } from 'rxjs'; // Import Observable
-import { _Userdatajson } from '../../../shared/interface/datajsoninterface'; // Importing the interface to define the structure of posts.
+
+interface Userdatajson {
+  name: string;
+  email: string;
+}
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -47,8 +52,7 @@ export class FormComponent {
     }
   }
 
-  // Method to send form data to the JSON server
-  saveUserData(data: _Userdatajson): Observable<_Userdatajson> {
-    return this.http.post('http://localhost:3000/users', data);
+  saveUserData(data: Userdatajson): Observable<Userdatajson> {
+    return this.http.post<Userdatajson>('http://localhost:3000/users', data);
   }
 }
