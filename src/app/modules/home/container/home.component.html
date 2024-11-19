@@ -1,7 +1,7 @@
-<section class="container px-5 py-24 mx-auto flex items-center">
-  <!-- Display text from the parent component in app-resultform -->
-  <app-resultform [item]="currentItem"></app-resultform>
 
-  <!-- Send text from the app-form component to the parent component -->
-  <app-form (dataUpdate)="updateText($event)"></app-form>
-</section>
+  <section class="container px-5 py-16 mx-auto flex items-center">
+    <app-resultform [resultvariable]="homevariable"></app-resultform>
+  
+    <app-form (textinfrom)="homefucntion($event)"></app-form>
+  </section>
+  

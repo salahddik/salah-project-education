@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core'; // First, import Input
   styleUrls: ['./resultform.component.scss'],
 })
 export class ResultformComponent {
-  @Input() item = ''; // decorate the property with @Input()
+  @Input() resultvariable = '';
 }
