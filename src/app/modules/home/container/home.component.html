@@ -1,7 +1,7 @@
+<section class="container px-5 py-16 mx-auto flex items-center">
+  <!-- Pass homevariable to ResultFormComponent -->
+  <app-resultform [resultvariable]="homevariable"></app-resultform>
 
-  <section class="container px-5 py-16 mx-auto flex items-center">
-    <app-resultform [resultvariable]="homevariable"></app-resultform>
-  
-    <app-form (textinfrom)="homefucntion($event)"></app-form>
-  </section>
-  
+  <!-- Pass form data from FormComponent to HomeComponent via event binding -->
+  <app-form (formSubmitted)="handleFormSubmit($event)"></app-form>
+</section>

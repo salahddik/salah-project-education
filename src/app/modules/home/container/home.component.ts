@@ -6,9 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  homevariable = ''; // Initial value
+  homevariable: { input1: string; input2: string } | null = null;
 
-  homefucntion(newItem: string) {
-    this.homevariable = newItem;
+  // Method to handle data received from FormComponent
+  handleFormSubmit(data: { input1: string; input2: string }) {
+    this.homevariable = data; // Update homevariable with data from FormComponent
   }
 }

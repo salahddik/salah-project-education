@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceApiService } from '../../../shared/service/service-api.service'; // Import the service
-import { Postsinterface } from '../../../shared/interface/postsinterface'; // Import the service
+import { Postsinterface } from '../../../shared/interface/postsinterface'; // Import the interface
 
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
-  styleUrl: './posts.component.scss',
+  styleUrls: ['./posts.component.scss'], // Corrected property name to `styleUrls`
 })
 export class PostsComponent implements OnInit {
   posts: Postsinterface[] = []; // Typed posts array
@@ -13,10 +13,26 @@ export class PostsComponent implements OnInit {
   error = ''; // Stores error message if any
 
   constructor(private service: ServiceApiService) {}
+
   ngOnInit(): void {
-    // Fetch posts when the component initializes
-    this.service.getPosts().subscribe((data) => {
-      this.posts = data; // Store the fetched posts in the component
+    this.loading = true; // Set loading state to true before fetching data
+
+    this.service.getPosts().subscribe({
+      // Handle next (data emission)
+      next: (data) => {
+        this.posts = data; // Store the fetched posts
+        console.log('Posts fetched successfully');
+      },
+      // Handle error
+      error: (err) => {
+        this.error = 'Failed to load posts. Please try again later.'; // Set error message
+        console.error('Error fetching posts:', err);
+      },
+      // Handle complete
+      complete: () => {
+        this.loading = false; // Reset loading state when observable completes
+        console.log('Fetching posts completed.');
+      },
     });
   }
 }

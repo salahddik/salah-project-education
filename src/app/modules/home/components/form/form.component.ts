@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -6,9 +6,21 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent {
-  @Output() textinfrom = new EventEmitter<string>();
+  input1 = '';
+  input2 = '';
 
-  functionbutton(value: string) {
-    this.textinfrom.emit(value);
+  // EventEmitter to send form data back to the parent
+  @Output() formSubmitted = new EventEmitter<{
+    input1: string;
+    input2: string;
+  }>();
+
+  submitForm() {
+    if (this.input1 && this.input2) {
+      // Emit the form data
+      this.formSubmitted.emit({ input1: this.input1, input2: this.input2 });
+    } else {
+      console.log('Form is not valid!');
+    }
   }
 }

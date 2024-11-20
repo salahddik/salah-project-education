@@ -1,35 +1,29 @@
-<div class="container mx-auto p-4">
-
-
-  <label for="item-input">write text here </label>
+<div class="mb-4">
+  <label for="input1" class="block text-gray-700 font-bold mb-2">Input 1:</label>
   <input
-    class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-    type="text" id="item-input" #newItem>
-  <button
-    class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-    type="button" (click)="functionbutton(newItem.value)">send text to oter componant</button>
-  <h1 class="text-2xl font-bold mb-4">Register Form</h1>
-
-  <form class="max-w-md mx-auto bg-white p-6 shadow-md rounded-lg">
-    <!-- Name Field -->
-    <div class="mb-4">
-      <label for="name" class="block text-gray-700 font-semibold mb-2">Name:</label>
-      <input type="text" id="name" formControlName="name"
-        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
-    </div>
-
-    <!-- Email Field -->
-    <div class="mb-4">
-      <label for="email" class="block text-gray-700 font-semibold mb-2">Email:</label>
-      <input type="email" id="email" formControlName="email"
-        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
-    </div>
-
-    <!-- Submit Button -->
-    <button type="submit"
-      class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg font-semibold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 disabled:bg-gray-300 disabled:cursor-not-allowed">
-      Submit
-    </button>
-  </form>
-
+    id="input1"
+    type="text"
+    [(ngModel)]="input1"
+    required
+    class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+  />
 </div>
+
+<div class="mb-4">
+  <label for="input2" class="block text-gray-700 font-bold mb-2">Input 2:</label>
+  <input
+    id="input2"
+    type="text"
+    [(ngModel)]="input2"
+    required
+    class="mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+  />
+</div>
+
+<!-- Submit button triggers the submitForm() method -->
+<button
+  (click)="submitForm()"
+  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5"
+>
+  Submit
+</button>
