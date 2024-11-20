@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http'; // Import HttpClient
-import { Observable } from 'rxjs'; // Import Observable
-
-interface Userdatajson {
-  name: string;
-  email: string;
-}
+import { CrudapiService } from '../../../shared/service/crudapi.service'; // Import the service
+import { Userdatajson } from '../../../shared/interface/crudinterfacedata'; // Import the interface
 
 @Component({
   selector: 'app-form',
@@ -20,8 +15,9 @@ export class FormComponent {
 
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient,
+    private service: CrudapiService,
   ) {
+    // Initialize the form with FormBuilder
     this.myForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -31,8 +27,8 @@ export class FormComponent {
   // Submit form data to the JSON server
   onSubmit() {
     if (this.myForm.valid) {
-      const formData = this.myForm.value;
-      this.saveUserData(formData).subscribe({
+      const formData: Userdatajson = this.myForm.value; // Type casting for clarity
+      this.service.saveUserData(formData).subscribe({
         next: (response) => {
           console.log('Form data saved:', response);
           this.successMessage = 'Form submitted successfully!';
@@ -48,11 +44,10 @@ export class FormComponent {
           console.error('Error saving form data:', err);
           this.errorMessage = 'Failed to submit the form. Please try again.';
         },
+        complete: () => {
+          console.log('Form submission completed.');
+        },
       });
     }
-  }
-
-  saveUserData(data: Userdatajson): Observable<Userdatajson> {
-    return this.http.post<Userdatajson>('http://localhost:3000/users', data);
   }
 }

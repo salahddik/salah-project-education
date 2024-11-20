@@ -12,7 +12,7 @@ export class PostsComponent implements OnInit {
   loading = true; // Set loading state to true before fetching data
   error = ''; // Stores error message if any
 
-  constructor(private service: ServiceApiService) {}
+  constructor(private service: ServiceApiService) {} // hadi hia li katsama di Dependency injection
 
   ngOnInit(): void {
     this.service.getPosts().subscribe({

@@ -4,11 +4,13 @@ import { ResultRoutingModule } from './result.routing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ResultComponent } from './container/Result.component';
 import { provideHttpClient } from '@angular/common/http';
+import { CrudapiService } from '../../shared/service/crudapi.service';
 
 @NgModule({
   declarations: [ResultComponent],
   imports: [CommonModule, ResultRoutingModule, ReactiveFormsModule],
   providers: [
+    CrudapiService,
     provideHttpClient(), // Providing the HttpClient using hadi badaltha dir deprecated()
   ],
 })
