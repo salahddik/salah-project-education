@@ -1,12 +1,14 @@
-<div *ngIf="resultvariable">
-  <h2>Form Data:</h2>
-  <p>Input 1: {{ resultvariable.input1 }}</p>
-  <p>Input 2: {{ resultvariable.input2 }}</p>
+<div class="lg:w-3/5 md:w-1/2 pr-0 md:pr-16">
+  <h1 class="title-font font-medium text-3xl text-gray-900">
+    Hello Mr. 
+    <span *ngIf="resultvariable">
+      {{ resultvariable.input1 }}
+    </span>
+  </h1>
+  <p class="leading-relaxed mt-4">
+    Your age is 
+    <span *ngIf="resultvariable">
+      {{ resultvariable.input2 }}
+    </span>
+  </p>
 </div>
-
-
-
-<div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
-      <h1 class="title-font font-medium text-3xl text-gray-900">Slow-carb next level shoindcgoitch ethical authentic, poko scenester</h1>
-      <p class="leading-relaxed mt-4">Poke slow-carb mixtape knausgaard, typewriter street art gentrify hammock starladder roathse. Craies vegan tousled etsy austin.</p>
-    </div>

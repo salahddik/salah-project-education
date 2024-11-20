@@ -9,14 +9,12 @@ import { Postsinterface } from '../../../shared/interface/postsinterface'; // Im
 })
 export class PostsComponent implements OnInit {
   posts: Postsinterface[] = []; // Typed posts array
-  loading = false; // Indicates loading state
+  loading = true; // Set loading state to true before fetching data
   error = ''; // Stores error message if any
 
   constructor(private service: ServiceApiService) {}
 
   ngOnInit(): void {
-    this.loading = true; // Set loading state to true before fetching data
-
     this.service.getPosts().subscribe({
       // Handle next (data emission)
       next: (data) => {

@@ -9,14 +9,12 @@ import { ServiceApiService } from '../../../shared/service/service-api.service';
 })
 export class ProductsComponent implements OnInit {
   products: productInterface[] = []; // Holds the list of products
-  loading = false; // Indicates loading state
+  loading = true; // Set loading state to true before fetching data
   error = ''; // Stores error message if any
 
   constructor(private service: ServiceApiService) {}
 
   ngOnInit(): void {
-    this.loading = true; // Set loading state to true before fetching data
-
     this.service.getProducts().subscribe({
       // Handle emitted data (next)
       next: (data) => {
