@@ -1,3 +1,11 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": "b9c2",
+      "name": "sdsdfsd asda ",
+      "email": "sadas@asdas.com",
+      "address": "sdfsdsadasdas",
+      "phone": "04564646456464"
+    }
+  ]
 }

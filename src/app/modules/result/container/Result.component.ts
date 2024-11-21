@@ -17,10 +17,10 @@ export class ResultComponent implements OnInit {
     this.crudApiService.getUsers().subscribe({
       next: (data) => {
         this.users = data;
-        console.log('Users fetched successfully:', data);
+        console.log('Users fetched successfully:');
       },
       error: (error) => {
-        console.error('Error fetching users:', error);
+        console.error('Error fetching users:');
       },
       complete: () => {
         console.log('Fetching users complete.');

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CrudapiService } from '../../../shared/service/crudapi.service'; // Import the service
-import { Userdatajson } from '../../../shared/interface/crudinterfacedata'; // Import the interface
+import { CrudapiService } from '../../../shared/service/crudapi.service';
+import { Userdatajson } from '../../../shared/interface/crudinterfacedata';
 
 @Component({
   selector: 'app-form',
@@ -10,24 +10,27 @@ import { Userdatajson } from '../../../shared/interface/crudinterfacedata'; // I
 })
 export class FormComponent {
   myForm: FormGroup;
-  successMessage = ''; // Property to hold the success message
-  errorMessage = ''; // Property to hold error messages
+  successMessage = '';
+  errorMessage = '';
 
   constructor(
     private fb: FormBuilder,
     private service: CrudapiService,
   ) {
-    // Initialize the form with FormBuilder
     this.myForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      address: ['', Validators.required],
+      phone: [
+        '',
+        [Validators.required, Validators.pattern('^\\+?[0-9]{7,15}$')], // Regex for phone number
+      ],
     });
   }
 
-  // Submit form data to the JSON server
   onSubmit() {
     if (this.myForm.valid) {
-      const formData: Userdatajson = this.myForm.value; // Type casting for clarity
+      const formData: Userdatajson = this.myForm.value;
       this.service.saveUserData(formData).subscribe({
         next: (response) => {
           console.log('Form data saved:', response);
@@ -35,7 +38,6 @@ export class FormComponent {
           this.errorMessage = '';
           this.myForm.reset();
 
-          // Clear success message after 3 seconds (optional)
           setTimeout(() => {
             this.successMessage = '';
           }, 3000);
@@ -48,6 +50,8 @@ export class FormComponent {
           console.log('Form submission completed.');
         },
       });
+    } else {
+      this.errorMessage = 'Please fill out the form correctly.';
     }
   }
 }
