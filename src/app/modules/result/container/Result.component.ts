@@ -16,7 +16,7 @@ export class ResultComponent implements OnInit {
     private router: Router,
   ) {}
 
-  navigateToEdit(user: any): void {
+  navigateToEdit(user: Userdatajson): void {
     this.router.navigate(['/edit'], { queryParams: { id: user.id } });
     // Or use state for passing the entire user object
     // this.router.navigateByUrl('/edit', { state: { user } });

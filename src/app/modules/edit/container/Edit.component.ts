@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CrudapiService } from '../../../shared/service/crudapi.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-result',
   templateUrl: './Edit.component.html',
@@ -16,7 +17,7 @@ export class EditComponent implements OnInit {
     private route: ActivatedRoute,
     private userService: CrudapiService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
   ) {
     this.editForm = this.fb.group({
       id: [''],
@@ -30,8 +31,8 @@ export class EditComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.queryParams['id']; // Get ID from query params
     if (id) {
-      this.userService.getUserById(id).subscribe(
-        (users) => {
+      this.userService.getUserById(id).subscribe({
+        next: (users) => {
           const user = users[0]; // JSON Server returns an array
           if (user) {
             this.editForm.patchValue(user);
@@ -41,11 +42,11 @@ export class EditComponent implements OnInit {
           }
           this.isLoading = false;
         },
-        (error) => {
+        error: (error) => {
           console.error('Error fetching user:', error);
           this.isLoading = false;
-        }
-      );
+        },
+      });
     } else {
       console.error('No ID provided in query params');
       this.router.navigate(['/']);
@@ -54,17 +55,21 @@ export class EditComponent implements OnInit {
 
   onSubmit(): void {
     if (this.editForm.valid) {
-      this.userService.updateUser(this.editForm.value).subscribe(
-        (response) => {
+      this.userService.updateUser(this.editForm.value).subscribe({
+        next: (response) => {
           this.successMessage = 'Save successful!';
+          console.log('Update successful:', response);
           setTimeout(() => {
             this.router.navigate(['/result']); // Redirect after 2 seconds
           }, 2000);
         },
-        (error) => {
+        error: (error) => {
           console.error('Error updating user:', error);
-        }
-      );
+        },
+        complete: () => {
+          console.log('Update request completed.');
+        },
+      });
     } else {
       console.error('Form is invalid');
     }

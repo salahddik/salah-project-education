@@ -40,8 +40,8 @@ export class CrudapiService {
    * @param id User ID to fetch
    * @returns Observable of the user data
    */
-  getUserById(id: number): Observable<Userdatajson> {
-    return this.http.get<Userdatajson>(`${this.apiUrl}/${id}`);
+  getUserById(id: number): Observable<Userdatajson[]> {
+    return this.http.get<Userdatajson[]>(`${this.apiUrl}?id=${id}`);
   }
 
   /**
