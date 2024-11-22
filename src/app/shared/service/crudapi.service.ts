@@ -28,8 +28,6 @@ export class CrudapiService {
 
   /**
    * Delete a user by ID
-   * @param id User ID to delete
-   * @returns Observable for the deletion operation
    */
   deleteUser(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
@@ -37,8 +35,6 @@ export class CrudapiService {
 
   /**
    * Fetch a single user by ID
-   * @param id User ID to fetch
-   * @returns Observable of the user data
    */
   getUserById(id: number): Observable<Userdatajson[]> {
     return this.http.get<Userdatajson[]>(`${this.apiUrl}?id=${id}`);
