@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudapiService } from '../../../shared/service/crudapi.service'; // Import the service
 import { Userdatajson } from '../../../shared/interface/crudinterfacedata'; // Import the user interface
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-result',
@@ -10,8 +11,16 @@ import { Userdatajson } from '../../../shared/interface/crudinterfacedata'; // I
 export class ResultComponent implements OnInit {
   users: Userdatajson[] = []; // Store the fetched users here.
 
-  constructor(private crudApiService: CrudapiService) {}
+  constructor(
+    private crudApiService: CrudapiService,
+    private router: Router,
+  ) {}
 
+  navigateToEdit(user: any): void {
+    this.router.navigate(['/edit'], { queryParams: { id: user.id } });
+    // Or use state for passing the entire user object
+    // this.router.navigateByUrl('/edit', { state: { user } });
+  }
   ngOnInit(): void {
     // Fetch the data using the service
     this.crudApiService.getUsers().subscribe({
