@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, input, Output } from '@angular/core';
+import { Perssoninterfacedata } from '../../../../shared/interface/Perssoninterfacedata';
 
 @Component({
   selector: 'app-form',
@@ -7,24 +8,23 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class FormComponent {
   // Form inputs
-  input1 = '';
-  input2 = '';
-
+  person = { name: '', age: '' };
   // EventEmitter to send form data to the parent component
-  @Output() formSubmitted = new EventEmitter<{
-    input1: string;
-    input2: string;
-  }>();
+  @Output() formSubmitted = new EventEmitter<Perssoninterfacedata>();
 
   /**
    * Handles form submission
    * Emits form data if both inputs are valid
    */
   submitForm(): void {
-    const isFormValid = this.input1 && this.input2;
+    const isFormValid = this.person.name && this.person.age;
+    const person: Perssoninterfacedata = {
+      input1: this.person.name,
+      input2: this.person.age,
+    };
 
     if (isFormValid) {
-      this.formSubmitted.emit({ input1: this.input1, input2: this.input2 });
+      this.formSubmitted.emit(person);
     } else {
       console.error('Form is not valid!');
     }

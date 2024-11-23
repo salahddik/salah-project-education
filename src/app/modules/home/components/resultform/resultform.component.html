@@ -11,9 +11,17 @@
       {{ resultvariable.input2 }}
     </span>
   </p>
-  <h1>Purchases from {{ company | titlecase }} on {{ purchasedOn | date }}</h1>
-<p>Total: {{ amount | currency }}</p>
+  <h1>Purchases from 
+    {{ company | titlecase }}
+     on 
+     {{ purchasedOn | date }}
+    </h1>
+<p>Total: 
+  {{ amount | currency }}</p>
 </div>
+
+
+
 
 <h1 class="text-2xl font-bold mb-4">{{elementsh2}}</h1>
 
