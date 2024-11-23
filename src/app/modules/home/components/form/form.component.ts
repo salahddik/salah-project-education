@@ -1,5 +1,5 @@
-import { Component, EventEmitter, input, Output } from '@angular/core';
-import { Perssoninterfacedata } from '../../../../shared/interface/Perssoninterfacedata';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Perssoninterfacedata } from '../../../../shared/interface/perssoninterfacedata';
 
 @Component({
   selector: 'app-form',

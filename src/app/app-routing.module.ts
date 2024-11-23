@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
@@ -40,3 +41,9 @@ export const routes: Routes = [
     title: 'edit',
   },
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)], // Set up the router with the routes
+  exports: [RouterModule], // Export RouterModule to use in AppModule
+})
+export class AppRoutingModule {}

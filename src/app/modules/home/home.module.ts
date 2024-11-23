@@ -6,6 +6,8 @@ import { homeRoutingModule } from './home.routing';
 import { FormComponent } from './components/form/form.component';
 import { ResultFormComponent } from './components/resultform/resultform.component';
 import { provideHttpClient } from '@angular/common/http';
+import { StarPipe } from '../../shared/pipes/star.pipe';
+import { MonnyPipe } from '../../shared/pipes/monny.pipe';
 
 @NgModule({
   declarations: [HomeComponent, FormComponent, ResultFormComponent],
@@ -13,6 +15,8 @@ import { provideHttpClient } from '@angular/common/http';
     CommonModule,
     FormsModule, // Add FormsModule here
     homeRoutingModule,
+    MonnyPipe,
+    StarPipe,
   ],
   exports: [HomeComponent], // Export HomeComponent so it can be used in other modules
   providers: [
