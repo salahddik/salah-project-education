@@ -8,6 +8,8 @@ import { ResultFormComponent } from './components/resultform/resultform.componen
 import { provideHttpClient } from '@angular/common/http';
 import { StarPipe } from '../../shared/pipes/star.pipe';
 import { MonnyPipe } from '../../shared/pipes/monny.pipe';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [HomeComponent, FormComponent, ResultFormComponent],
@@ -17,6 +19,8 @@ import { MonnyPipe } from '../../shared/pipes/monny.pipe';
     homeRoutingModule,
     MonnyPipe,
     StarPipe,
+    MatInputModule,
+    MatFormFieldModule,
   ],
   exports: [HomeComponent], // Export HomeComponent so it can be used in other modules
   providers: [
