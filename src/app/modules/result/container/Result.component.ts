@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudapiService } from '../../../shared/service/crudapi.service'; // Import the service
 import { Userdatajson } from '../../../shared/interface/crudinterfacedata'; // Import the user interface
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-result',
@@ -10,17 +9,10 @@ import { Router } from '@angular/router';
 })
 export class ResultComponent implements OnInit {
   users: Userdatajson[] = []; // Store the fetched users here.
+  editingUserId: number | null = null; // Track the user currently being edited
 
-  constructor(
-    private crudApiService: CrudapiService,
-    private router: Router,
-  ) {}
+  constructor(private crudApiService: CrudapiService) {}
 
-  navigateToEdit(user: Userdatajson): void {
-    this.router.navigate(['/edit'], { queryParams: { id: user.id } });
-    // Or use state for passing the entire user object
-    // this.router.navigateByUrl('/edit', { state: { user } });
-  }
   ngOnInit(): void {
     // Fetch the data using the service
     this.crudApiService.getUsers().subscribe({
@@ -29,10 +21,37 @@ export class ResultComponent implements OnInit {
         console.log('Users fetched successfully:');
       },
       error: (error) => {
-        console.error('Error fetching users:');
+        console.error('Error fetching users:', error);
       },
       complete: () => {
         console.log('Fetching users complete.');
+      },
+    });
+  }
+
+  toggleEdit(user: Userdatajson): void {
+    if (this.editingUserId === user.id) {
+      // If the same user is clicked, save the changes and stop editing
+      this.saveUser(user);
+    } else {
+      // Set the user as the one being edited
+      this.editingUserId = user.id;
+    }
+  }
+
+  saveUser(user: Userdatajson): void {
+    // Save the user (update the user in the database or local state)
+    this.crudApiService.updateUser(user).subscribe({
+      next: (updatedUser) => {
+        const index = this.users.findIndex((u) => u.id === updatedUser.id);
+        if (index !== -1) {
+          this.users[index] = updatedUser; // Update the user in the list
+        }
+        this.editingUserId = null; // Stop editing
+        console.log('User updated successfully');
+      },
+      error: (error) => {
+        console.error('Error updating user:', error);
       },
     });
   }
@@ -47,9 +66,6 @@ export class ResultComponent implements OnInit {
       },
       error: (error) => {
         console.error(`Error deleting user with ID ${id}:`, error);
-      },
-      complete: () => {
-        console.log(`Deletion of user with ID ${id} complete.`);
       },
     });
   }

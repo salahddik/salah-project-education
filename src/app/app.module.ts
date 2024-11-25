@@ -21,7 +21,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     NavbarModule,
     footerModule,
   ],
-  providers: [provideClientHydration(), provideAnimationsAsync('noop')],
+  providers: [provideClientHydration(), provideAnimationsAsync('noop'), provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

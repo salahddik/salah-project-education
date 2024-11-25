@@ -15,11 +15,19 @@ export class FormComponent {
 
   constructor(
     private fb: FormBuilder,
-    private service: CrudapiService,
+    private service: CrudapiService
   ) {
     this.myForm = this.fb.group({
       name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$',
+          ),
+        ],
+      ], // This was missing a closing bracket for the email array
       address: ['', Validators.required],
       phone: [
         '',

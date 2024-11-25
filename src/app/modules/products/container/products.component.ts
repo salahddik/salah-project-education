@@ -15,6 +15,12 @@ export class ProductsComponent implements OnInit {
   constructor(private service: ServiceApiService) {} // hadi hia li katsama di Dependency injection
 
   ngOnInit(): void {
+    // Simulate loading for 5 seconds before starting to fetch posts
+    setTimeout(() => {
+      this.fetchProducts();
+    }, 5000); // 5 seconds delay
+  }
+  fetchProducts(): void {
     this.service.getProducts().subscribe({
       // Handle emitted data (next)
       next: (data) => {

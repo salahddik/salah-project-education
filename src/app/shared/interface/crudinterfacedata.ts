@@ -3,5 +3,5 @@ export interface Userdatajson {
   name: string;
   email: string;
   address: string;
-  phone: number;
+  phone: string;
 }

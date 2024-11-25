@@ -12,9 +12,16 @@ export class PostsComponent implements OnInit {
   loading = true; // Set loading state to true before fetching data
   error = ''; // Stores error message if any
 
-  constructor(private service: ServiceApiService) {} // hadi hia li katsama di Dependency injection
+  constructor(private service: ServiceApiService) {} // Dependency Injection
 
   ngOnInit(): void {
+    // Simulate loading for 5 seconds before starting to fetch posts
+    setTimeout(() => {
+      this.fetchPosts();
+    }, 5000); // 5 seconds delay
+  }
+
+  fetchPosts(): void {
     this.service.getPosts().subscribe({
       // Handle next (data emission)
       next: (data) => {

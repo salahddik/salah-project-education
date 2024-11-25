@@ -4,10 +4,11 @@ import { ProductsComponent } from './container/products.component';
 import { ProductsRoutingModule } from './Products.routing';
 import { provideHttpClient } from '@angular/common/http';
 import { ServiceApiService } from '../../shared/service/service-api.service';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [ProductsComponent],
-  imports: [CommonModule, ProductsRoutingModule], // Import CommonModule for common Angular directives
+  imports: [CommonModule, ProductsRoutingModule, MatProgressBarModule], // Import CommonModule for common Angular directives
   exports: [ProductsComponent], // Export NavbarComponent so it can be used in other modules
   providers: [
     ServiceApiService,

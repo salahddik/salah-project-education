@@ -34,12 +34,6 @@ export const routes: Routes = [
       import('./modules/result/result.module').then((m) => m.ResultModule),
     title: 'result',
   },
-  {
-    path: 'edit',
-    loadChildren: () =>
-      import('./modules/edit/Edit.module').then((m) => m.EditModule),
-    title: 'edit',
-  },
 ];
 
 @NgModule({

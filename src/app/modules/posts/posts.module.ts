@@ -4,10 +4,11 @@ import { PostsComponent } from './container/posts.component';
 import { postsRoutingModule } from './posts.routing';
 import { provideHttpClient } from '@angular/common/http';
 import { ServiceApiService } from '../../shared/service/service-api.service'; // Import the service
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [PostsComponent],
-  imports: [CommonModule, postsRoutingModule], // Import CommonModule for common Angular directives
+  imports: [CommonModule, postsRoutingModule, MatProgressBarModule], // Import CommonModule for common Angular directives
   exports: [PostsComponent], // Export PostsComponent so it can be used in other modules
   providers: [
     ServiceApiService,
