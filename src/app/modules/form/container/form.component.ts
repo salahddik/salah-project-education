@@ -15,7 +15,7 @@ export class FormComponent {
 
   constructor(
     private fb: FormBuilder,
-    private service: CrudapiService
+    private service: CrudapiService,
   ) {
     this.myForm = this.fb.group({
       name: ['', Validators.required],

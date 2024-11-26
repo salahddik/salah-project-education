@@ -11,9 +11,7 @@ import { footerModule } from './layout/footer/footer.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
-  declarations: [
-    AppComponent, // Declare AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,7 +19,11 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     NavbarModule,
     footerModule,
   ],
-  providers: [provideClientHydration(), provideAnimationsAsync('noop'), provideAnimationsAsync()],
+  providers: [
+    provideClientHydration(),
+    provideAnimationsAsync('noop'),
+    provideAnimationsAsync(),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ExamModule } from './modules/exam/Exam.module';
 
 export const routes: Routes = [
   {
@@ -33,6 +34,12 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./modules/result/result.module').then((m) => m.ResultModule),
     title: 'result',
+  },
+  {
+    path: 'exam',
+    loadChildren: () =>
+      import('./modules/exam/Exam.module').then((m) => m.ExamModule),
+    title: 'exam',
   },
 ];
 

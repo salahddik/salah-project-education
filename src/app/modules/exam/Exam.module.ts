@@ -1,23 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ResultRoutingModule } from './result.routing';
+import { ExamtRoutingModule } from './Exam.routing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ResultComponent } from './container/Result.component';
-import { provideHttpClient } from '@angular/common/http';
-import { CrudapiService } from '../../shared/service/crudapi.service';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { ExamComponent } from './container/Exam.component';
 
 @NgModule({
-  declarations: [ResultComponent],
+  declarations: [ExamComponent],
   imports: [
     CommonModule,
-    ResultRoutingModule,
+    ExamtRoutingModule,
     ReactiveFormsModule,
-    FormsModule,
   ],
   providers: [
-    CrudapiService,
-    provideHttpClient(), // Providing the HttpClient using hadi badaltha dir deprecated()
   ],
 })
-export class ResultModule {}
+export class ExamModule {}

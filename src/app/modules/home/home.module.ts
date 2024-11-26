@@ -12,13 +12,17 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
-  declarations: [HomeComponent, FormComponent, ResultFormComponent],
+  declarations: [
+    HomeComponent,
+    FormComponent,
+    ResultFormComponent,
+    MonnyPipe,
+    StarPipe,
+  ],
   imports: [
     CommonModule,
     FormsModule, // Add FormsModule here
     homeRoutingModule,
-    MonnyPipe,
-    StarPipe,
     MatInputModule,
     MatFormFieldModule,
   ],

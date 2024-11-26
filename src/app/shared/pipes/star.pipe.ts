@@ -2,10 +2,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'star',
-  standalone: true,
 })
 export class StarPipe implements PipeTransform {
   transform(value: string): string {
-    return `${value} ⭐️`;
+    const splitedvalue: string[] = value.split('');
+    let result = '';
+    for (const item of splitedvalue) {
+      if (result !== '') {
+        result += '_';
+      }
+      result += item;
+    }
+    return result;
   }
 }
