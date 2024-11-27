@@ -6,19 +6,11 @@ import { homeRoutingModule } from './home.routing';
 import { FormComponent } from './components/form/form.component';
 import { ResultFormComponent } from './components/resultform/resultform.component';
 import { provideHttpClient } from '@angular/common/http';
-import { StarPipe } from '../../shared/pipes/star.pipe';
-import { MonnyPipe } from '../../shared/pipes/monny.pipe';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    FormComponent,
-    ResultFormComponent,
-    MonnyPipe,
-    StarPipe,
-  ],
+  declarations: [HomeComponent, FormComponent, ResultFormComponent],
   imports: [
     CommonModule,
     FormsModule, // Add FormsModule here

@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./Exam.component.scss'], // Ensure correct case
 })
 export class ExamComponent {
+  number = 8945;
+  text = 'hello world';
 }
