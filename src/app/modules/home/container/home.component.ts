@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class HomeComponent {
   homevariable: { input1: string; input2: string } | null = null;
 
-  // Method to handle data received from FormComponent
+  // Method to handle data received from ResultexamComponent
   handleFormSubmit(data: { input1: string; input2: string }) {
-    this.homevariable = data; // Update homevariable with data from FormComponent
+    this.homevariable = data; // Update homevariable with data from ResultexamComponent
   }
 }

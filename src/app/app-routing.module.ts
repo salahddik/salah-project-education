@@ -40,6 +40,14 @@ export const routes: Routes = [
       import('./modules/exam/Exam.module').then((m) => m.ExamModule),
     title: 'exam',
   },
+  {
+    path: 'resultexam',
+    loadChildren: () =>
+      import('./modules/result-exam/resultexam.module').then(
+        (m) => m.ResultexamModule,
+      ),
+    title: 'exam result',
+  },
 ];
 
 @NgModule({
