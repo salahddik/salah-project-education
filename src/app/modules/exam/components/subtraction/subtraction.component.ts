@@ -1,31 +1,37 @@
 import { Component } from '@angular/core';
+import { MathService } from '../../../../shared/service/MathService.service';
 
 @Component({
   selector: 'app-subtraction',
   templateUrl: './subtraction.component.html',
-  styleUrl: './subtraction.component.css',
+  styleUrls: ['./subtraction.component.css'], // Fixed typo: use 'styleUrls' instead of 'styleUrl'
 })
 export class SubtractionComponent {
   num1 = 0;
   num2 = 0;
-  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
-  sum: number = 0; // Ensured sum is a number type
+  sum = 0; // Sum of subtraction result
   userInput = '';
   feedback = '';
 
+  constructor(private mathService: MathService) {}
+
   generateAndSum(): void {
-    // Generate random numbers
+    // Generate random numbers for subtraction
     this.num1 = Math.floor(Math.random() * 100); // Random number between 0 and 99
     this.num2 = Math.floor(Math.random() * 100); // Random number between 0 and 99
 
-    // Prevent division by zero
-    while (this.num2 === 0) {
-      this.num2 = Math.floor(Math.random() * 100); // Ensure num2 is not zero
+    // Ensure num1 is greater than num2 for positive results
+    if (this.num1 < this.num2) {
+      const temp = this.num1;
+      this.num1 = this.num2;
+      this.num2 = temp;
     }
 
-    // Perform integer division by truncating the result
-    this.sum = Math.trunc(this.num1 / this.num2); // Truncate the result to an integer
-    console.log(this.sum); // Log the result in the console
+    // Perform subtraction
+    this.sum = this.num1 - this.num2; // Subtraction operation
+
+    // Update the temporary sum in the service
+    this.mathService.updateSubSum(this.sum); // Call the service method to update temporary sum
 
     // Reset feedback and input field
     this.feedback = '';

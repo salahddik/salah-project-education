@@ -7,15 +7,20 @@ import { MathService } from '../../../shared/service/MathService.service';
   styleUrls: ['./resultexam.component.scss'],
 })
 export class ResultexamComponent implements OnInit {
-  sum: number | null = null;
+  sum: number | null = null; // To store the final sum
+  subSum: number | null = null; // To store the temporary sum
 
   constructor(private mathService: MathService) {}
 
   ngOnInit(): void {
-    // Subscribe to the sum observable
+    // Subscribe to the final sum observable
     this.mathService.sum$.subscribe((value) => {
-      this.sum = value;
+      this.sum = value; // Update final sum when it changes
     });
-  } // Closing ngOnInit() method
 
+    // Subscribe to the temporary sum observable
+    this.mathService.sub$.subscribe((value) => {
+      this.subSum = value; // Update temporary sum when it changes
+    });
+  }
 } // Closing the class
