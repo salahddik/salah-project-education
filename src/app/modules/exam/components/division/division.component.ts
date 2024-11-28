@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MathService } from '../../../../shared/service/MathService.service';
 
 @Component({
   selector: 'app-division',
@@ -12,6 +13,7 @@ export class DivisionComponent {
   sum: number = 0; // Ensured sum is a number type
   userInput = '';
   feedback = '';
+  constructor(private mathService: MathService) {}
 
   generateAndSum(): void {
     // Generate random numbers
@@ -26,6 +28,8 @@ export class DivisionComponent {
     // Perform integer division by truncating the result
     this.sum = Math.trunc(this.num1 / this.num2); // Truncate the result to an integer
     console.log(this.sum); // Log the result in the console
+
+    this.mathService.updatediv(this.sum); // Call the service method to update temporary sum
 
     // Reset feedback and input field
     this.feedback = '';

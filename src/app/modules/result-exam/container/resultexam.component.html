@@ -6,6 +6,15 @@
 
   <!-- Optionally, display subSum if you want to show the temporary sum -->
   <p *ngIf="subSum !== null" class="text-lg font-semibold">
-    Temporary Sum: <span class="text-green-500">{{ subSum }}</span>
+    Temporary Subtraction : <span class="text-green-500">{{ subSum }}</span>
+  </p>
+
+  <!-- Optionally, display subSum if you want to show the temporary sum -->
+  <p *ngIf="divSum !== null" class="text-lg font-semibold">
+    Temporary division : <span class="text-green-500">{{ divSum }}</span>
+  </p>
+  <!-- Optionally, display subSum if you want to show the temporary sum -->
+  <p *ngIf="multiple !== null" class="text-lg font-semibold">
+    Temporary multiplication  : <span class="text-green-500">{{ multiple }}</span>
   </p>
 </div>

@@ -6,7 +6,6 @@ import { MathService } from '../../../../shared/service/MathService.service';
   templateUrl: './sum.component.html',
   styleUrls: ['./sum.component.css'], // Fixed typo (styleUrls instead of styleUrl)
 })
-
 export class SumComponent {
   num1 = 0;
   num2 = 0;

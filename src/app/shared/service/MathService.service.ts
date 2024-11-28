@@ -6,10 +6,21 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class MathService {
   private subSubject = new BehaviorSubject<number | null>(null); // Store temporary sum
-  private sumSubject = new BehaviorSubject<number>(0); // Store final sum
+  private divSubject = new BehaviorSubject<number | null>(null); // Store final sum
+  private sumSubject = new BehaviorSubject<number | null>(null); // Store final sum
+  private multSubject = new BehaviorSubject<number | null>(null); // Store final sum
   sub$ = this.subSubject.asObservable(); // Observable to expose temporary sum
   sum$ = this.sumSubject.asObservable(); // Observable to expose final sum
+  div$ = this.divSubject.asObservable(); // Observable to expose final sum
+  multi$ = this.multSubject.asObservable(); // Observable to expose final sum
 
+  updatemulti(newSum: number): void {
+    this.multSubject.next(newSum);
+  }
+
+  updatediv(newSum: number): void {
+    this.divSubject.next(newSum); // Update temporary sum value
+  }
   updateSubSum(newSum: number): void {
     this.subSubject.next(newSum); // Update temporary sum value
   }
