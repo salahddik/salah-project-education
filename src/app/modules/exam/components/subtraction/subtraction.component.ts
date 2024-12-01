@@ -7,11 +7,11 @@ import { MathService } from '../../../../shared/service/MathService.service';
   styleUrls: ['./subtraction.component.css'], // Fixed typo: use 'styleUrls' instead of 'styleUrl'
 })
 export class SubtractionComponent {
-  num1 = 0;
-  num2 = 0;
-  sum = 0; // Sum of subtraction result
-  userInput = '';
-  feedback = '';
+  num1: number = 0;
+  num2: number = 0;
+  sum: number = 0; // Sum of subtraction result
+  userInput: string = '';
+  feedback: string = '';
 
   constructor(private mathService: MathService) {}
 

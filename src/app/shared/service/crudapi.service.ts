@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class CrudapiService {
-  private apiUrl = environment.apicrud;
+  private apiUrl: string = environment.apicrud;
 
   constructor(private http: HttpClient) {}
 

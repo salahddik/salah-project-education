@@ -1,15 +1,23 @@
 <div class="mx-auto p-20 pt-6">
   <h2 class="text-2xl font-bold mb-4 text-gray-800">User List</h2>
   <div class="overflow-x-auto">
-    <table class="w-full text-left table-auto border-collapse bg-white shadow-md rounded-lg">
+    <table
+      class="w-full text-left table-auto border-collapse bg-white shadow-md rounded-lg"
+    >
       <thead>
         <tr class="bg-gray-100">
           <th class="px-6 py-3 text-gray-700 font-semibold border-b">ID</th>
           <th class="px-6 py-3 text-gray-700 font-semibold border-b">Name</th>
           <th class="px-6 py-3 text-gray-700 font-semibold border-b">Email</th>
-          <th class="px-6 py-3 text-gray-700 font-semibold border-b">Address</th>
+          <th class="px-6 py-3 text-gray-700 font-semibold border-b">
+            Address
+          </th>
           <th class="px-6 py-3 text-gray-700 font-semibold border-b">Phone</th>
-          <th class="px-6 py-3 text-gray-700 font-semibold border-b text-center">Action</th>
+          <th
+            class="px-6 py-3 text-gray-700 font-semibold border-b text-center"
+          >
+            Action
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -22,7 +30,10 @@
               {{ user.name }}
             </ng-container>
             <ng-container *ngIf="editingUserId === user.id">
-              <input [(ngModel)]="user.name" class="px-3 py-2 border rounded-md" />
+              <input
+                [(ngModel)]="user.name"
+                class="px-3 py-2 border rounded-md"
+              />
             </ng-container>
           </td>
 
@@ -32,7 +43,10 @@
               {{ user.email }}
             </ng-container>
             <ng-container *ngIf="editingUserId === user.id">
-              <input [(ngModel)]="user.email" class="px-3 py-2 border rounded-md" />
+              <input
+                [(ngModel)]="user.email"
+                class="px-3 py-2 border rounded-md"
+              />
             </ng-container>
           </td>
 
@@ -42,7 +56,10 @@
               {{ user.address }}
             </ng-container>
             <ng-container *ngIf="editingUserId === user.id">
-              <input [(ngModel)]="user.address" class="px-3 py-2 border rounded-md" />
+              <input
+                [(ngModel)]="user.address"
+                class="px-3 py-2 border rounded-md"
+              />
             </ng-container>
           </td>
 
@@ -52,7 +69,10 @@
               {{ user.phone }}
             </ng-container>
             <ng-container *ngIf="editingUserId === user.id">
-              <input [(ngModel)]="user.phone" class="px-3 py-2 border rounded-md" />
+              <input
+                [(ngModel)]="user.phone"
+                class="px-3 py-2 border rounded-md"
+              />
             </ng-container>
           </td>
 

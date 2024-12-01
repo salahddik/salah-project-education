@@ -9,8 +9,8 @@ import { Postsinterface } from '../../../shared/interface/postsinterface'; // Im
 })
 export class PostsComponent implements OnInit {
   posts: Postsinterface[] = []; // Typed posts array
-  loading = true; // Set loading state to true before fetching data
-  error = ''; // Stores error message if any
+  loading: boolean = true; // Set loading state to true before fetching data
+  error: string = ''; // Stores error message if any
 
   constructor(private service: ServiceApiService) {} // Dependency Injection
 

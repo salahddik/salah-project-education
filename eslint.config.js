@@ -41,11 +41,12 @@ module.exports = tseslint.config(
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
-          args: 'none',                // Ignore unused function arguments
-          ignoreRestSiblings: true,    // Ignore rest sibling variables (like in destructuring)
-          varsIgnorePattern: '^_'      // Allow variables starting with underscore to be unused
-        }
+          args: 'none', // Ignore unused function arguments
+          ignoreRestSiblings: true, // Ignore rest sibling variables (like in destructuring)
+          varsIgnorePattern: '^_', // Allow variables starting with underscore to be unused
+        },
       ],
+      '@typescript-eslint/no-inferrable-types': 'off', // Disable the 'no-inferrable-types' rule
     },
   },
   {

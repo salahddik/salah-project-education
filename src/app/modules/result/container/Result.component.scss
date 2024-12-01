@@ -1,22 +1,21 @@
 .container {
-    max-width: 800px;
-    margin: 0 auto;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+.modal {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  .modal-overlay {
-    background: rgba(0, 0, 0, 0.5);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  .modal {
-    animation: fadeIn 0.3s ease-in-out;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+}

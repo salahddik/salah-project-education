@@ -7,12 +7,12 @@ import { MathService } from '../../../../shared/service/MathService.service';
   styleUrls: ['./sum.component.css'], // Fixed typo (styleUrls instead of styleUrl)
 })
 export class SumComponent {
-  num1 = 0;
-  num2 = 0;
-  sum = 0;
-  userInput = '';
-  feedback = '';
-  isDisabled = false;
+  num1: number = 0;
+  num2: number = 0;
+  sum: number = 0;
+  userInput: string = '';
+  feedback: string = '';
+  isDisabled: boolean = false;
 
   constructor(private mathService: MathService) {}
 

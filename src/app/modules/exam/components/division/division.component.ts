@@ -7,12 +7,12 @@ import { MathService } from '../../../../shared/service/MathService.service';
   styleUrls: ['./division.component.css'], // Fixed typo: 'styleUrls' instead of 'styleUrl'
 })
 export class DivisionComponent {
-  num1 = 0;
-  num2 = 0;
-  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
+  num1: number = 0;
+  num2: number = 0;
+
   sum: number = 0; // Ensured sum is a number type
-  userInput = '';
-  feedback = '';
+  userInput: string = '';
+  feedback: string = '';
   constructor(private mathService: MathService) {}
 
   generateAndSum(): void {

@@ -10,8 +10,8 @@ import { Userdatajson } from '../../../shared/interface/crudinterfacedata';
 })
 export class FormComponent {
   myForm: FormGroup;
-  successMessage = '';
-  errorMessage = '';
+  successMessage: string = '';
+  errorMessage: string = '';
 
   constructor(
     private fb: FormBuilder,

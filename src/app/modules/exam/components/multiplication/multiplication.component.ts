@@ -7,12 +7,12 @@ import { MathService } from '../../../../shared/service/MathService.service';
   styleUrl: './multiplication.component.css',
 })
 export class MultiplicationComponent {
-  num1 = 0;
-  num2 = 0;
+  num1: number = 0;
+  num2: number = 0;
   // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   sum: number = 0; // Ensured sum is a number type
-  userInput = '';
-  feedback = '';
+  userInput: string = '';
+  feedback: string = '';
 
   constructor(private mathService: MathService) {}
 
@@ -31,7 +31,6 @@ export class MultiplicationComponent {
     console.log(this.sum); // Log the result in the console
 
     this.mathService.updatemulti(this.sum); // Call the service method to update temporary sum
-
 
     // Reset feedback and input field
     this.feedback = '';

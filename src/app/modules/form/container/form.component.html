@@ -6,9 +6,9 @@
     [formGroup]="myForm"
     (ngSubmit)="onSubmit()"
     class="max-w-md mx-auto bg-white p-6 shadow-md rounded-lg border border-gray-300"
-    >
+  >
     <!-- Name Field -->
-    <mat-form-field  class="full-width mb-4 ">
+    <mat-form-field class="full-width mb-4">
       <mat-label>Name</mat-label>
       <input matInput formControlName="name" />
     </mat-form-field>
@@ -21,10 +21,7 @@
         Please enter a valid email in the format example&#64;example.com.
       </mat-error>
     </mat-form-field>
-    
-    
-    
-    
+
     <!-- Address Field -->
     <mat-form-field class="full-width mb-4">
       <mat-label>Address</mat-label>

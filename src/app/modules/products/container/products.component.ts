@@ -9,8 +9,8 @@ import { ServiceApiService } from '../../../shared/service/service-api.service';
 })
 export class ProductsComponent implements OnInit {
   products: productInterface[] = []; // Holds the list of products
-  loading = true; // Set loading state to true before fetching data
-  error = ''; // Stores error message if any
+  loading: boolean = true; // Set loading state to true before fetching data
+  error: string = ''; // Stores error message if any
 
   constructor(private service: ServiceApiService) {} // hadi hia li katsama di Dependency injection
 
