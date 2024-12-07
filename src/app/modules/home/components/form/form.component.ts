@@ -8,7 +8,7 @@ import { Perssoninterfacedata } from '../../../../shared/interface/perssoninterf
 })
 export class FormComponent {
   // Form inputs
-  person:{name:string,age:string} = { name: '', age: '' };
+  person: { name: string; age: string } = { name: '', age: '' };
   // EventEmitter to send form data to the parent component
   @Output() formSubmitted = new EventEmitter<Perssoninterfacedata>();
 

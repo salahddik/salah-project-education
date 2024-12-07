@@ -11,11 +11,13 @@ export class PostsComponent implements OnInit {
   posts: Postsinterface[] = []; // Typed posts array
   loading: boolean = true; // Set loading state to true before fetching data
   error: string = ''; // Stores error message if any
+  score: number = 10;
 
   constructor(private service: ServiceApiService) {} // Dependency Injection
 
   ngOnInit(): void {
-    // Simulate loading for 5 seconds before starting to fetch posts
+    this.score = this.score * 100;
+    console.log(this.score);
     setTimeout(() => {
       this.fetchPosts();
     }, 5000); // 5 seconds delay
@@ -27,6 +29,7 @@ export class PostsComponent implements OnInit {
       next: (data) => {
         this.posts = data; // Store the fetched posts
         console.log('Posts fetched successfully');
+        console.log(this.posts);
       },
       // Handle error
       error: (err) => {

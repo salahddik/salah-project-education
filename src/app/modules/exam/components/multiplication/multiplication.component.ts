@@ -9,7 +9,7 @@ import { MathService } from '../../../../shared/service/MathService.service';
 export class MultiplicationComponent {
   num1: number = 0;
   num2: number = 0;
-  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
+
   sum: number = 0; // Ensured sum is a number type
   userInput: string = '';
   feedback: string = '';
