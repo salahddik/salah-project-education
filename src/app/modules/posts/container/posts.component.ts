@@ -67,6 +67,10 @@ export class PostsComponent implements OnInit {
     // this String Methods is for test
     console.log(this.nametest.length); // hadi gadi gadi t3tik 3adad
 
+    console.log(this.nametest.toUpperCase()); // hadi gadi gadi t3tik upercase
+
+    console.log(this.nametest.includes('salah')); // hadi gadi gadi t3tik true
+
     console.log(this.nametest.slice(2)); // hadi gadi gadi t7ayad a7rouf lwala
 
     console.log(this.nametest.slice(0, -2)); // hadi gadi gadi t7ayad a7rouf lakhrin
