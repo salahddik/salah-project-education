@@ -23,6 +23,9 @@ export class PostsComponent implements OnInit {
   //--------------------
   // this array is for test
   arraytst: string[] = ['Banana', 'Mango'];
+  //--------------------
+  // this string methods is for test
+  nametest: string = 'this is text for testing is salah app';
 
   //--------------------
   constructor(private service: ServiceApiService) {} // Dependency Injection
@@ -60,6 +63,13 @@ export class PostsComponent implements OnInit {
 
     this.arraytst.pop();
     console.log(this.arraytst); //  hna gadi imsa7 kiwi l array
+
+    // this String Methods is for test
+    console.log(this.nametest.length); // hadi gadi gadi t3tik 3adad
+
+    console.log(this.nametest.slice(2)); // hadi gadi gadi t7ayad a7rouf lwala
+
+    console.log(this.nametest.slice(0, -2)); // hadi gadi gadi t7ayad a7rouf lakhrin
 
     setTimeout(() => {
       this.fetchPosts();
