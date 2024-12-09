@@ -37,7 +37,12 @@ module.exports = tseslint.config(
           style: 'kebab-case',
         },
       ],
-      'prettier/prettier': 'error', // Treat Prettier issues as errors
+      'prettier/prettier': [
+        'error',
+        {
+          endOfLine: 'auto', // Add endOfLine rule for Prettier
+        },
+      ],
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
