@@ -2,12 +2,32 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceApiService } from '../../../shared/service/service-api.service'; // Import the service
 import { Postsinterface } from '../../../shared/interface/postsinterface'; // Import the interface
 
+class Vehicle {
+  private color: string;
+  private tires: number;
+  private automatic: boolean;
+
+  // Constructor to initialize vehicle properties
+  constructor(color: string, tires: number, automatic: boolean) {
+    this.color = color;
+    this.tires = tires;
+    this.automatic = automatic;
+  }
+
+  // Method to get vehicle details
+  getDetails(): string {
+    return `Vehicle Color: ${this.color}, Tires: ${this.tires}, Automatic: ${this.automatic}`;
+  }
+}
+
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss'], // Corrected property name to `styleUrls`
 })
 export class PostsComponent implements OnInit {
+  vehicle: Vehicle;
+
   loading: boolean = true; // Set loading state to true before fetching data
   posts: Postsinterface[] = []; // Typed posts array
   error: string = ''; // Stores error message if any
@@ -28,9 +48,13 @@ export class PostsComponent implements OnInit {
   nametest: string = 'this is text for testing is salah app';
 
   //--------------------
-  constructor(private service: ServiceApiService) {} // Dependency Injection
+  constructor(private service: ServiceApiService) {
+    this.vehicle = new Vehicle('Red', 4, true);
+  } // Dependency Injection
 
   ngOnInit(): void {
+    console.log(this.vehicle.getDetails());
+
     // this test boolean
     if (this.alive || this.die) {
       console.log('this mean or is is true.'); // This will be printed
